@@ -14,7 +14,6 @@ import useAsync from "../../hooks/useAsync";
 import Uploader from "../image-uploader/Uploader";
 
 const CourseDrawer = ({ id }) => {
-  const { data } = useAsync(CategoryServices.getAllCategory);
   const { register, handleSubmit, onSubmit, errors, imageUrl, setImageUrl } =
     useCourseSubmit(id);
 
@@ -23,13 +22,13 @@ const CourseDrawer = ({ id }) => {
       <div className="w-full relative p-6 border-b border-gray-100 bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
         {id ? (
           <Title
-            title="Update Course"
-            description="Updated your course and necessary information from here"
+            title="Update internship"
+            description="Updated your internship and necessary information from here"
           />
         ) : (
           <Title
-            title="Add Course"
-            description="Add your course and necessary information from here"
+            title="Add internship"
+            description="Add your internship and necessary information from here"
           />
         )}
       </div>
@@ -37,7 +36,7 @@ const CourseDrawer = ({ id }) => {
         <form onSubmit={handleSubmit(onSubmit)} className="block">
           <div className="px-6 pt-8 flex-grow w-full h-full max-h-full pb-40 md:pb-32 lg:pb-32 xl:pb-32">
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Course Content" />
+              <LabelArea label="internship Content" />
               <div className="col-span-8 sm:col-span-4">
                 <Uploader
                   imageUrl={imageUrl}
@@ -48,21 +47,21 @@ const CourseDrawer = ({ id }) => {
             </div>
 
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Course Title/Name" />
+              <LabelArea label="internship Title/Name" />
               <div className="col-span-8 sm:col-span-4">
                 <InputArea
                   register={register}
-                  label="Course Title/Name"
+                  label="internship Title/Name"
                   name="title"
                   type="text"
-                  placeholder="Course title"
+                  placeholder="internship title"
                 />
                 <Error errorName={errors.title} />
               </div>
             </div>
 
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Course Description" />
+              <LabelArea label="internship Description" />
               <div className="col-span-8 sm:col-span-4">
                 <Textarea
                   className="border text-sm focus:outline-none block w-full bg-gray-100 border-transparent focus:bg-white"
@@ -81,64 +80,9 @@ const CourseDrawer = ({ id }) => {
                 <Error errorName={errors.description} />
               </div>
             </div>
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="category" />
-              <div className="col-span-8 sm:col-span-4">
-                <Select
-                  className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 dark:bg-white border-transparent focus:bg-white"
-                  name="category"
-                  {...register("category", {
-                    required: "category level is required!",
-                  })}>
-                  <option value="" defaultValue hidden>
-                    Select category
-                  </option>
-                  {data.map((c) => (
-                    <option key={c.id} value={c._id}>
-                      {c.title}
-                    </option>
-                  ))}
-                </Select>
-                <Error errorName={errors.category} />
-              </div>
-            </div>
+          
+          
 
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="level" />
-              <div className="col-span-8 sm:col-span-4">
-                <Select
-                  className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 dark:bg-white border-transparent focus:bg-white"
-                  name="level"
-                  {...register("level", {
-                    required: "Course level is required!",
-                  })}>
-                  <option value="" defaultValue hidden>
-                    Select level
-                  </option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </Select>
-                <Error errorName={errors.level} />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="total steps" />
-              <div className="col-span-8 sm:col-span-4">
-                <InputArea
-                  register={register}
-                  required="false"
-                  label="totalSteps"
-                  name="totalSteps"
-                  type="number"
-                  placeholder="totalSteps"
-                />
-                <Error errorName={errors.totalsteps} />
-              </div>
-            </div>
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label="duration" />
               <div className="col-span-8 sm:col-span-4">
@@ -156,11 +100,11 @@ const CourseDrawer = ({ id }) => {
        
 
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Course Type" />
+              <LabelArea label="internship Type" />
               <div className="col-span-8 sm:col-span-4">
                 <SelectOption
                   register={register}
-                  label="Course type"
+                  label="internship type"
                   name="type"
                 />
                 <Error errorName={errors.type} />
@@ -168,7 +112,7 @@ const CourseDrawer = ({ id }) => {
             </div>
           </div>
 
-          <DrawerButton id={id} title="Course" />
+          <DrawerButton id={id} title="internship" />
         </form>
       </Scrollbars>
     </>

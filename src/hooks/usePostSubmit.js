@@ -26,7 +26,7 @@ const usePostSubmit = (id) => {
         message: data.message,
         type: data.type
      ,
-     media: data.media,
+     media: imageUrl,
      time: data.time,
      likes: data.likes,
      comments: data.comments,
@@ -59,11 +59,12 @@ const usePostSubmit = (id) => {
 
   useEffect(() => {
     if (!isDrawerOpen) {
-      
+      setValue('media');
       setValue('message');
       setValue('type');
      
-      
+      clearErrors('media');
+
       clearErrors('message');
       clearErrors('type');
       
@@ -75,6 +76,8 @@ const usePostSubmit = (id) => {
         PostServices.getPost(id)
         .then((res) => {
           if (res) {
+            setValue('media',res.media);
+
             setValue('title',res.message);
             setValue('type',res.type);
             setValue('time',res.time);

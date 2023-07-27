@@ -9,11 +9,11 @@ import InputArea from "../form/InputArea";
 import SelectRole from "../form/SelectRole";
 import DrawerButton from "../form/DrawerButton";
 import Uploader from "../image-uploader/Uploader";
-import useStaffSubmit from "../../hooks/useStaffSubmit";
+import useUserSubmit from "../../hooks/useUserSubmit";
 
-const StaffDrawer = ({ id }) => {
+const UserDrawer = ({ id }) => {
   const { register, handleSubmit, onSubmit, errors, imageUrl, setImageUrl } =
-    useStaffSubmit(id);
+  useUserSubmit(id);
 
   return (
     <>
@@ -50,7 +50,7 @@ const StaffDrawer = ({ id }) => {
                       label="displayName"
                       name="displayName"
                       type="text"
-                      placeholder="Staff name"
+                      placeholder="name"
                     />
                     <Error errorName={errors.name} />
                   </div>
@@ -86,16 +86,10 @@ const StaffDrawer = ({ id }) => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-                  <LabelArea label="Staff Role" />
-                  <div className="col-span-8 sm:col-span-4">
-                    <SelectRole register={register} label="Role" name="role" />
-                    <Error errorName={errors.role} />
-                  </div>
-                </div>
+               
               </div>
 
-              <DrawerButton id={id} title="Staff" />
+              <DrawerButton id={id} title="user" />
             </form>
           </CardBody>
         </Card>
@@ -104,4 +98,4 @@ const StaffDrawer = ({ id }) => {
   );
 };
 
-export default StaffDrawer;
+export default UserDrawer;

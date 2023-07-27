@@ -29,11 +29,12 @@ const StaffTable = ({ staffs }) => {
             </TableCell>
             <TableCell>
               <div className="flex items-center">
-                <Avatar
+                {/* <Avatar
                   className="hidden mr-3 md:block bg-gray-50"
                   src={staff.photoURL}
                   alt={staff.displayName}
-                />
+                /> */}
+
                 <div>
                   <h2 className="text-sm font-medium">{staff.displayName}</h2>
                 </div>
@@ -47,11 +48,11 @@ const StaffTable = ({ staffs }) => {
               <span className="text-sm ">{staff.phone}</span>
             </TableCell>
 
-            <TableCell>
+            {/* <TableCell>
               <span className="text-sm">
                 {dayjs(staff.createdAt).format("MMM D, YYYY")}
               </span>
-            </TableCell>
+            </TableCell> */}
             <TableCell>
               <span className="text-sm font-semibold">{staff.role}</span>
             </TableCell>

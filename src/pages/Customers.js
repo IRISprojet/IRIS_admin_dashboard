@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { SidebarContext } from '../context/SidebarContext';
+
 import {
   Table,
   TableHeader,
@@ -9,7 +11,9 @@ import {
   Card,
   CardBody,
   Pagination,
+  Button,
 } from '@windmill/react-ui';
+import { FiPlus } from 'react-icons/fi';
 
 import useAsync from '../hooks/useAsync';
 import useFilter from '../hooks/useFilter';
@@ -18,9 +22,12 @@ import Loading from '../components/preloader/Loading';
 import PageTitle from '../components/Typography/PageTitle';
 import CustomerTable from '../components/customer/CustomerTable';
 import AdminServices from '../services/AdminServices';
+import MainDrawer from '../components/drawer/MainDrawer';
+import UserDrawer from '../components/drawer/UserDrawer';
 
 const Customers = () => {
   const { data, loading } = useAsync(AdminServices.getAllUsers);
+  const { toggleDrawer } = useContext(SidebarContext);
 
   const {
     userRef,
@@ -35,6 +42,9 @@ const Customers = () => {
   return (
     <>
       <PageTitle>Users</PageTitle>
+      <MainDrawer>
+        <UserDrawer/>
+      </MainDrawer>
       <Card className="min-w-0 shadow-xs overflow-hidden bg-white dark:bg-gray-800 mb-5">
         <CardBody>
           <form
@@ -53,6 +63,14 @@ const Customers = () => {
                 type="submit"
                 className="absolute right-0 top-0 mt-5 mr-1"
               ></button>
+            </div>
+            <div className="w-full md:w-56 lg:w-56 xl:w-56">
+              <Button onClick={toggleDrawer} className="w-full rounded-md h-12">
+                <span className="mr-3">
+                  <FiPlus />
+                </span>
+                Add user
+              </Button>
             </div>
           </form>
         </CardBody>

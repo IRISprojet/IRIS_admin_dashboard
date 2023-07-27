@@ -1,6 +1,7 @@
 import React from 'react';
 import { Scrollbars } from 'react-custom-scrollbars-2';
 import { Textarea, Select } from '@windmill/react-ui';
+import Uploader from "../image-uploader/Uploader";
 
 import Title from '../form/Title';
 import Error from '../form/Error';
@@ -15,6 +16,8 @@ const PostDrawer = ({ id }) => {
     register,
     handleSubmit,
     onSubmit,
+    setImageUrl,
+     imageUrl,
     errors,
     
   } = usePostSubmit(id);
@@ -38,12 +41,12 @@ const PostDrawer = ({ id }) => {
       <Scrollbars className="w-full md:w-7/12 lg:w-8/12 xl:w-8/12 relative dark:bg-gray-700 dark:text-gray-200">
         <form onSubmit={handleSubmit(onSubmit)} className="block">
           <div className="px-6 pt-8 flex-grow w-full h-full max-h-full pb-40 md:pb-32 lg:pb-32 xl:pb-32">
-            {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Course Image" />
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="media" />
               <div className="col-span-8 sm:col-span-4">
                 <Uploader imageUrl={imageUrl} setImageUrl={setImageUrl} />
               </div>
-            </div> */}
+            </div>
 
             
 

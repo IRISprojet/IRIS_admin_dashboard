@@ -29,11 +29,11 @@ const sidebar = [
     icon: FiBook,
     name: "internship",
   },
-  {
-    path: "/category",
-    icon: FiBookOpen,
-    name: "Subjects",
-  },
+  // {
+  //   path: "/category",
+  //   icon: FiBookOpen,
+  //   name: "Subjects",
+  // },
   {
     path: "/Post",
     icon: TfiComments,

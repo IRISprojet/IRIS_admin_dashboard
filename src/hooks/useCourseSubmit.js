@@ -24,15 +24,11 @@ const useCourseSubmit = (id) => {
 
     const productData = {
       title: data.title,
-      slug: data.slug
-        ? data.slug
-        : data.title.toLowerCase().replace('&', '').split(' ').join('-'),
       description: data.description,
       level: data.level,
       category: data.category,
       type: data.type,
       duration: data.duration,
-      totalSteps: data.totalSteps,
      
     
     
@@ -63,21 +59,15 @@ const useCourseSubmit = (id) => {
       
       setValue('title');
       setValue('level');
-      setValue('category');
       setValue('type');
-      setValue('slug');
       setValue('description');
       setValue('duration');
-      setValue('totalSteps');
       
       clearErrors('title');
       clearErrors('level');
-      clearErrors('category');
       clearErrors('type');
-      clearErrors('slug');
       clearErrors('description');
       clearErrors('duration');
-      clearErrors('totalSteps');
     
       return;
     }
@@ -88,12 +78,9 @@ const useCourseSubmit = (id) => {
           if (res) {
             setValue('title',res.title);
             setValue('level',res.level);
-            setValue('category',res.category);
             setValue('type',res.type);
-            setValue('slug',res.slug);
             setValue('description',res.description);
             setValue('duration',res.duration);
-            setValue('totalSteps',res.totalSteps);
 
          
           }

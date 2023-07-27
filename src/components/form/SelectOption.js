@@ -12,11 +12,10 @@ const SelectOption = ({ register, name, label}) => {
         })}
       >
         <option value="" defaultValue hidden>Select type</option>
-        <option value="cours">cours</option>
-        <option value="td">td</option>
-        <option value="examen">examen</option>
-        <option value="enregistrement">enregistrement </option>
-        <option value="resumé">resumé </option>
+        <option value="stage pfe">stage pfe </option>
+        <option value="stage d'été">stage d'été</option>
+        <option value="autre..">autre..</option>
+        
         
       </Select>
     </>

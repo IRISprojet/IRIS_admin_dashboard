@@ -2,35 +2,35 @@ import requests from './httpService';
 
 const CoursesServices = {
   getAllCourses() {
-    return requests.get('/course/' );
+    return requests.get('/Internship/' );
   },
 
   getStockOutCourses() {
-    return requests.get('/course/');
+    return requests.get('/Internship/');
   },
 
   getCoursetById(id) {
-    return requests.get(`/course/${id}`);
+    return requests.get(`/Internship/${id}`);
   },
 
   addCourse(body) {
-    return requests.post('/course/', body);
+    return requests.post('/Internship/', body);
   },
 
   addAllCourses(body) {
-    return requests.post('/course/', body);
+    return requests.post('/Internship/', body);
   },
 
   updateCourse(id, body) {
-    return requests.put(`/course/${id}`, body);
+    return requests.put(`/Internship/${id}`, body);
   },
 
   updateStatus(id, body) {
-    return requests.put(`/course/status/${id}`, body);
+    return requests.put(`/Internship/status/${id}`, body);
   },
 
   deleteCourse(id) {
-    return requests.delete(`/course/${id}`);
+    return requests.delete(`/Internship/${id}`);
   },
 };
 

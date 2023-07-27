@@ -48,7 +48,7 @@ const Staff = () => {
 
   return (
     <>
-      <PageTitle>All Staff</PageTitle>
+      <PageTitle>All Members</PageTitle>
       <MainDrawer>
         <StaffDrawer />
       </MainDrawer>
@@ -80,9 +80,9 @@ const Staff = () => {
                 <option value="All" defaultValue hidden>
                 Role
                 </option>
-                <option value="Admin">Admin</option>
-                <option value="Staff">Staff</option>
-                <option value="Moderator">Moderator</option>
+                <option value="Admin">admin</option>
+                <option value="Staff">team leader</option>
+                <option value="Moderator">researcher</option>
               </Select>
             </div>
 
@@ -109,7 +109,6 @@ const Staff = () => {
                 <TableCell>Name</TableCell>
                 <TableCell>Email</TableCell>
                 <TableCell>Phone</TableCell>
-                <TableCell>Joining Date</TableCell>
                 <TableCell>Role</TableCell>
 
                 <TableCell className="text-right">Actions</TableCell>

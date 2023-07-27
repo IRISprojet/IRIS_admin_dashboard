@@ -60,14 +60,14 @@ const Post = () => {
               <button type="submit" className="absolute right-0 top-0 mt-5 mr-1"></button>
             </div>
 
-            {/* <div className="w-full md:w-56 lg:w-56 xl:w-56">
+            <div className="w-full md:w-56 lg:w-56 xl:w-56">
               <Button onClick={toggleDrawer} className="w-full rounded-md h-12">
                 <span className="mr-3">
                   <FiPlus />
                 </span>
-                Add Post
+                Add Event
               </Button>
-            </div> */}
+            </div>
           </form>
         </CardBody>
       </Card>

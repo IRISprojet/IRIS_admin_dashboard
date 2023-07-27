@@ -8,7 +8,7 @@ import { AdminContext } from "../context/AdminContext";
 import { SidebarContext } from "../context/SidebarContext";
 import { notifyError, notifySuccess } from "../utils/toast";
 
-const useStaffSubmit = (id) => {
+const useUserSubmit = (id) => {
   const { state } = useContext(AdminContext);
   const { adminInfo } = state;
   // const [imageUrl, setImageUrl] = useState("");
@@ -28,16 +28,15 @@ const useStaffSubmit = (id) => {
     //   notifyError("Image is required!");
     //   return;
     // }
-    const staffData = {
+    const userData = {
       displayName: data.displayName,
       email: data.email,
       password: data.password,
-      role: data.role,
-      // photoURL: imageUrl,
+    
     };
 
     if (id) {
-      AdminServices.updateStaff(id, { data: staffData })
+      AdminServices.updateStaff(id, { data: userData })
         .then((res) => {
           setIsUpdate(true);
           notifySuccess("Staff Updated Successfully!");
@@ -45,7 +44,7 @@ const useStaffSubmit = (id) => {
         .catch((err) => notifyError(err.message));
       closeDrawer();
     } else {
-      AdminServices.addStaff( staffData )
+      AdminServices.registerAdmin(userData)
         .then((res) => {
           setIsUpdate(true);
           notifySuccess(res.message);
@@ -62,24 +61,21 @@ const useStaffSubmit = (id) => {
       setValue("email");
       setValue("password");
      // setValue("joiningDate");
-      setValue("role");
       // setImageUrl("");
       clearErrors("displayName");
       clearErrors("email");
       clearErrors("password");
      // clearErrors("joiningDate");
-      clearErrors("role");
       return;
     }
     if (id) {
-      AdminServices.getStaffById(id)
+      AdminServices.registerAdmin
         .then((res) => {
           if (res) {
             setValue("displayName", res.displayName);
             setValue("email", res.email);
             setValue("password", res.password);
-            setValue("joiningDate", res.createdAt);
-            setValue("role", res.role);
+          
             // setImageUrl(res.photoURL);
           }
         })
@@ -99,7 +95,6 @@ const useStaffSubmit = (id) => {
       setValue("displayName", user.displayName);
       setValue("email", user.email);
       setValue("password", user.password);
-      setValue("role", user.role);
       // setImageUrl(user.image);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -114,4 +109,4 @@ const useStaffSubmit = (id) => {
   };
 };
 
-export default useStaffSubmit;
+export default useUserSubmit;

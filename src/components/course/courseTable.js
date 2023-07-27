@@ -23,18 +23,11 @@ const CourseTable = ({ courses }) => {
                 <h2 className="text-sm">{course.title}</h2>
               </div>
             </TableCell>
-            <TableCell>
-              <span className="text-sm">{course.level}</span>
-            </TableCell>
-            <TableCell>
-              <span className="text-sm">{course.category.title}</span>
-            </TableCell>
+           
             <TableCell>
               <span className="text-sm">{course.type}</span>
             </TableCell>
-            <TableCell>
-              <span className="text-sm">{course.slug}</span>
-            </TableCell>
+           
 
             <TableCell>
               <span className="text-sm">{course.duration}</span>
