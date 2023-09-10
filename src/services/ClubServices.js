@@ -8,7 +8,7 @@ const ClubServices = {
     return requests.get("/club");
   },
   getClubById(id) {
-    return requests.get(`/club/${id}`);
+    return requests.get(`/applied/${id}`);
   },
   updateClub(id, body) {
     return requests.put(`/club/${id}`, body);

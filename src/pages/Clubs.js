@@ -21,55 +21,24 @@ import ClubService from "../services/ClubServices";
 import { SidebarContext } from "../context/SidebarContext";
 import ClubTable from "../components/club/ClubTable";
 import PageTitle from "../components/Typography/PageTitle";
-import MainDrawer from "../components/drawer/MainDrawer";
-import ClubDrawer from "../components/drawer/ClubDrawer";
+//import MainDrawer from "../components/drawer/MainDrawer";
+//import ClubDrawer from "../components/drawer/ClubDrawer";
 
 const Clubs = () => {
   const { toggleDrawer } = useContext(SidebarContext);
-  const { data, loading } = useAsync(ClubService.getAllClubs);
+  const { data, loading } = useAsync(ClubService.getClubById);
 
   const {
-    handleSubmitClub,
-    clubRef,
     dataTable,
     serviceData,
     totalResults,
     resultsPerPage,
     handleChangePage,
   } = useFilter(data);
-
+  console.log(data);
   return (
     <>
-      <PageTitle>Clubs</PageTitle>
-
-      <MainDrawer>
-        <ClubDrawer />
-      </MainDrawer>
-
-      <Card className="min-w-0 shadow-xs overflow-hidden bg-white dark:bg-gray-800 mb-5">
-        <CardBody>
-          <form
-            onSubmit={handleSubmitClub}
-            className="py-3 grid gap-4 lg:gap-6 xl:gap-6 md:flex xl:flex">
-            <div className="flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
-              <Input
-                ref={clubRef}
-                type="search"
-                className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 border-transparent focus:bg-white"
-                placeholder="Search by club name"
-              />
-            </div>
-            <div className="w-full md:w-56 lg:w-56 xl:w-56">
-              <Button onClick={toggleDrawer} className="w-full rounded-md h-12">
-                <span className="mr-3">
-                  <FiPlus />
-                </span>
-                Add Club
-              </Button>
-            </div>
-          </form>
-        </CardBody>
-      </Card>
+      <PageTitle>applied internships</PageTitle>
 
       {loading ? (
         <Loading loading={loading} />
@@ -79,15 +48,11 @@ const Clubs = () => {
             <TableHeader>
               <tr>
                 <TableCell>ID</TableCell>
-                <TableCell>Creation Date</TableCell>
                 <TableCell>Name</TableCell>
                 <TableCell>Email</TableCell>
-                <TableCell>Budget</TableCell>
-                <TableCell>Status</TableCell>
-                <TableCell className="text-right">Actions</TableCell>
               </tr>
             </TableHeader>
-            <ClubTable clubs={dataTable} />
+            <ClubTable postulers={dataTable} />
           </Table>
           <TableFooter>
             <Pagination
@@ -99,7 +64,7 @@ const Clubs = () => {
           </TableFooter>
         </TableContainer>
       ) : (
-        <NotFound title="Club" />
+        <NotFound title="applied internships" />
       )}
     </>
   );

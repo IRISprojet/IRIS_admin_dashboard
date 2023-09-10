@@ -32,6 +32,7 @@ const Clubs = lazy(() => import("../pages/Clubs"));
 
 const routes = [
   {
+
     path: "/dashboard",
     component: Dashboard,
   },

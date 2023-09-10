@@ -86,7 +86,8 @@ const Post = () => {
                 {/* <TableCell>approved</TableCell> */}
                 <TableCell>details</TableCell>
               </tr>
-            </TableHeader>
+            </TableHeader>npm start 
+            
             <PostTable posts={dataTable} />
           </Table>
           <TableFooter>

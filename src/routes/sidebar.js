@@ -9,7 +9,9 @@ import {
   FiGift,
 } from "react-icons/fi";
 import { TfiComments } from "react-icons/tfi";
+import SelectRole from "../components/form/SelectRole";
 import { CiChat1 } from "react-icons/ci";
+
 
 /**
  * ⚠ These are used just to render the Sidebar!
@@ -19,12 +21,15 @@ import { CiChat1 } from "react-icons/ci";
  * `routes/index.js`
  */
 const sidebar = [
-  {
+  {  role :SelectRole.staff ,
+
     path: "/dashboard", // the url
     icon: FiGrid, // icon
     name: "Dashboard", // name that appear in Sidebar
   },
   {
+   
+
     path: "/Courses",
     icon: FiBook,
     name: "internship",
@@ -50,11 +55,11 @@ const sidebar = [
   //   icon: FiCalendar,
   //   name: "Events",
   // },
-  // {
-  //   path: "/clubs",
-  //   icon: FiGift,
-  //   name: "Clubs",
-  // },
+  {
+    path: "/clubs",
+    icon: FiGift,
+    name: "applied internships",
+  },
   {
     path: "/customers",
     icon: FiUsers,
